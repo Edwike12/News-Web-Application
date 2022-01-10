@@ -2,7 +2,7 @@ class source:
     '''
      Source class to define source objects
      '''
-    all_sources[]
+    all_sources = []
 
 def __init__(self,id,name,description,url,category,language,country):
         self.id = id
@@ -14,15 +14,15 @@ def __init__(self,id,name,description,url,category,language,country):
         self.country = country
 
         def save_source(self):
-                Source.all_sources.append(self)
+            source.all_sources.append(self)
 
 class Article:
     '''
      Article class to define article objects
      '''
-    all_sources[]
+    all_sources= []
 
-def __init__(self,id,name,description,url,category,language,country):
+def __init__(self,author,title,description,url,urlToImage,publishedAt,content):
             self.author = author
             self.title = title
             self.description = description
@@ -31,5 +31,5 @@ def __init__(self,id,name,description,url,category,language,country):
             self.publishedAt = publishedAt
             self.content = content
 
-        def save_source(self):
-                Source.all_sources.append(self)
+def save_source(self):
+            source.all_sources.append(self)
