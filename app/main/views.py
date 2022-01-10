@@ -1,27 +1,23 @@
 from flask import render_template
-from app import app
+from requests import get_articles,get_sources
+from app import main
+from app import SearchForm
 
 # Views
-@app.route('/')
+@main.route('/', methods = ['GET','POST'])
 def index():
-
-    '''
-    View root page function that returns the index page and its data
-    '''
-    return render_template('index.html')
-
-@app.route('/movie/<movie_id>')
-def movie(movie_id):
-
-    '''
-    View movie page function that returns the movie details page and its data
-    '''
-    return render_template('movie.html',id = movie_id)
-
-@app.route('/movie/<int:movie_id>')
-def movie(movie_id):
-
-    '''
-    View movie page function that returns the movie details page and its data
-    '''
-    return render_template('movie.html',id = movie_id)    
+    articles = get_articles('kenya')
+    headlines = get_articles('headlines')
+    technology = get_articles('technology')
+    sports = get_articles('sports')
+    politics = get_articles('politics')
+    entertainment = get_articles('entertainment')
+    sources = get_sources()
+    news = []
+    form = SearchForm()
+    search_item = form.search.data
+    if form.validate_on_submit():
+        news = []
+        search_item = form.search.data
+        news = get_articles(search_item)
+    return render_template('index.html',news = news,search_form = form, articles = articles, sources = sources, headlines = headlines, technology = technology, sports = sports, politics = politics, entertainment =entertainment )   
