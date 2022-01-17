@@ -1,35 +1,28 @@
-class Source:
-    '''
-     Source class to define source objects
-     '''
-    all_sources = []
+class Sources:
+    """
+    Sources class to define sources object
+    """
 
-def __init__(self,id,name,description,url,category,language,country):
+    def __init__(self, id, name, description, url, category, en, country):
         self.id = id
         self.name = name
         self.description = description
         self.url = url
         self.category = category
-        self.language = language
+        self.language = en
         self.country = country
 
-        def save_source(self):
-            Source.all_sources.append(self)
 
-class Article:
-    '''
-     Article class to define article objects
-     '''
-    all_sources= []
+class Articles:
+    """
+    Articles class to define articles object
+    """
 
-def __init__(self,author,title,description,url,urlToImage,publishedAt,content):
-            self.author = author
-            self.title = title
-            self.description = description
-            self.url = url
-            self.urlToImage = urlToImage
-            self.publishedAt = publishedAt
-            self.content = content
-
-def save_source(self):
-            Source.all_sources.append(self)
+    def __init__(self, author, title, description, url, urlToImage, publishedAt, content):
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
+        self.content = content
