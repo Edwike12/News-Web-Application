@@ -1,7 +1,7 @@
 from flask import render_template
-from requests import get_articles,get_sources
-from app import main
-from app import SearchForm
+from ..request import get_articles,get_sources
+from . import main
+from .forms import SearchForm
 
 # Views
 @main.route('/', methods = ['GET','POST'])
